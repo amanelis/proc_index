@@ -39,6 +39,13 @@ module ProcIndex
   end
 
   #
+  # self.kill_by_results
+  #
+  def self.kill_by_results(results)
+    results.collect { |node| Process.kill 9, node.pid.to_i }
+  end
+
+  #
   # self.ps
   #
   def self.ps(pid=nil)
@@ -69,15 +76,21 @@ module ProcIndex
           matcher_instances << {instance: FuzzyMatch.new(process_body, read: k), query: v}
         end
       when 'String'
-        matcher_instances << {instance: FuzzyMatch.new(process_body, read: :command),
-          query: args.strip.downcase}
+        # matcher_instances << {instance: FuzzyMatch.new(process_body, read: :command),
+        #   query: args.strip.downcase}
       else
         raise ArgumentError.new("Invalid search args: #{args.inspect} -> #{args.class.inspect}")
     end
 
-    results = matcher_instances.inject([]) do |result, instance|
-      result << instance[:instance].find(instance[:query])
+    if matcher_instances.empty?
+      results = process_body.select { |node| node.command.include?(args.downcase.strip) }
+    else
+      results = matcher_instances.inject([]) do |result, instance|
+        result << instance[:instance].find(instance[:query])
+      end
     end
+
+    results
   end
 
 private
