@@ -47,6 +47,13 @@ module ProcIndex
   end
 
   #
+  # self.kill_by_pid
+  #
+  def self.kill_by_pid(pid)
+    Process.kill 9, pid.to_i
+  end
+
+  #
   # self.ps
   #
   def self.ps(pid=nil)
