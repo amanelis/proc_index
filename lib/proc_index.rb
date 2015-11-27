@@ -24,6 +24,7 @@ module ProcIndex
     'command'
   ]
 
+  Fields = @fields
   ProcTableStruct = Hash[ *@fields.collect { |v| [ v, {position: 0} ] }.flatten ]
 
   @states = [
