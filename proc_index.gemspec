@@ -7,8 +7,8 @@ require 'proc_index/version'
 Gem::Specification.new do |gem|
   gem.name          = "proc_index"
   gem.version       = ProcIndex::VERSION
-  gem.summary       = %q{TODO: Summary}
-  gem.description   = %q{TODO: Description}
+  gem.summary       = "Process table ORM"
+  gem.description   = "Map and search all your processes."
   gem.license       = "MIT"
   gem.authors       = ["Alex Manelis"]
   gem.email         = "amanelis@gmail.com"
@@ -28,6 +28,11 @@ Gem::Specification.new do |gem|
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
+
+  gem.add_dependency 'awesome_print', '1.6.1'
+  gem.add_dependency 'fuzzy_match', '2.1.0'
+  gem.add_runtime_dependency 'hashie', '~> 3.4', '>= 3.4.3'
+  gem.add_development_dependency 'pry', '~> 0.10.3'
 
   gem.add_development_dependency 'bundler', '~> 1.10'
   gem.add_development_dependency 'rake', '~> 10.0'

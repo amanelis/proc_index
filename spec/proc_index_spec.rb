@@ -2,7 +2,9 @@ require 'spec_helper'
 require 'proc_index'
 
 describe ProcIndex do
-  it "should have a VERSION constant" do
-    expect(subject.const_get('VERSION')).to_not be_empty
+  describe '.ps' do
+    context 'returns true' do
+      it { expect(ProcIndex.ps).to_not be_nil }
+    end
   end
 end
