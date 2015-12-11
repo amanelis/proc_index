@@ -7,7 +7,19 @@ Printing all processes:
 	$> data = ProcIndex.ps
 	...
 	$> data.body
-	=> [<Hashie::Mash command="/System/Library/CoreServices/Dock.app/Contents/MacOS/Dock" cpu="36.0" mem="0.4" pid="354" rss="35780" started="Sat01PM" stat="U" time="8:08.24" tt="??" user="alexmanelis" vsz="2789684">...]
+	=> [<Hashie::Mash 
+		command="/System/Library/CoreServices/Dock.app/Contents/MacOS/Dock" 
+		cpu="36.0" 
+		mem="0.4" 
+		pid="354" 
+		rss="35780" 
+		started="Sat01PM" 
+		stat="U" 
+		time="8:08.24" 
+		tt="??" 
+		user="alexmanelis" 
+		vsz="2789684">,
+		...]
 	
 Searching by command:
 
