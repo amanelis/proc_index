@@ -31,7 +31,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'awesome_print', '1.6.1'
   gem.add_dependency 'fuzzy_match', '2.1.0'
-  gem.add_runtime_dependency 'hashie', '~> 3.4', '>= 3.4.3'
+  gem.add_runtime_dependency 'hashie', '~> 2.1.1'
   gem.add_development_dependency 'pry', '~> 0.10.3'
 
   gem.add_development_dependency 'bundler', '~> 1.10'
